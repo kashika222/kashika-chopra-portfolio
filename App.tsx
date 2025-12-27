@@ -72,10 +72,14 @@ const App: React.FC = () => {
             </div>
           </div>
           
-          <button className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-lg py-2 px-3 flex items-center justify-center gap-2 transition-all font-semibold text-xs shadow-lg shadow-blue-900/10">
+          <a 
+            href="/resume.pdf" 
+            download="Resume_Kashika.pdf"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-lg py-2 px-3 flex items-center justify-center gap-2 transition-all font-semibold text-xs shadow-lg shadow-blue-900/10"
+          >
             <Download size={14} />
             Download CV
-          </button>
+          </a>
           <p className="text-[10px] text-center text-slate-500 mt-4 font-bold tracking-tight">Dash by Kash ⭐</p>
         </div>
       </aside>
@@ -83,7 +87,7 @@ const App: React.FC = () => {
       {/* Main Content */}
       <main className="flex-1 ml-60 p-6 md:p-10 overflow-y-auto bg-[radial-gradient(circle_at_50%_0%,rgba(37,99,235,0.03)_0%,transparent_50%)]">
         <div className="max-w-7xl mx-auto">
-          {activeView === 'overview' && <Overview profileImage={STATIC_PROFILE_IMAGE} onImageChange={() => {}} />}
+          {activeView === 'overview' && <Overview profileImage={STATIC_PROFILE_IMAGE} />}
           {activeView === 'projects' && <ProjectsView />}
           {activeView === 'skills' && <SkillsView />}
           {activeView === 'timeline' && <TimelineView />}

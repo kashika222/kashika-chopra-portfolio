@@ -1,5 +1,5 @@
 
-import React, { useRef } from 'react';
+import React from 'react';
 import { 
   User, 
   GraduationCap, 
@@ -11,14 +11,12 @@ import {
   ShieldCheck,
   MapPin,
   Bookmark,
-  Camera,
   Github
 } from 'lucide-react';
 import { EducationItem, ActivityItem } from '../types';
 
 interface OverviewProps {
   profileImage: string;
-  onImageChange: (newImage: string) => void;
 }
 
 const EDUCATION: EducationItem[] = [
@@ -58,23 +56,7 @@ const ACTIVITIES: ActivityItem[] = [
   },
 ];
 
-const Overview: React.FC<OverviewProps> = ({ profileImage, onImageChange }) => {
-  const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const handleImageClick = () => {
-    fileInputRef.current?.click();
-  };
-
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        onImageChange(reader.result as string);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
+const Overview: React.FC<OverviewProps> = ({ profileImage }) => {
 
   return (
     <div className="max-w-[1200px] mx-auto space-y-6 animate-in fade-in duration-500 pb-10">
@@ -83,23 +65,13 @@ const Overview: React.FC<OverviewProps> = ({ profileImage, onImageChange }) => {
         <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/5 blur-[100px] -mr-32 -mt-32"></div>
         
         <div className="flex flex-col md:flex-row items-center md:items-start gap-8 relative z-10">
-          <div className="relative group cursor-pointer" onClick={handleImageClick}>
-            <input 
-              type="file" 
-              ref={fileInputRef} 
-              className="hidden" 
-              accept="image/*" 
-              onChange={handleFileChange} 
-            />
+          <div className="relative">
             <div className="w-24 h-24 md:w-32 md:h-32 rounded-3xl overflow-hidden border border-slate-700 shadow-2xl relative">
               <img 
                 src={profileImage} 
                 alt="Kashika Chopra" 
-                className="w-full h-full object-cover transition-transform group-hover:scale-110 duration-500"
+                className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <Camera className="text-white" size={24} />
-              </div>
             </div>
             <div className="absolute -bottom-1 -right-1 bg-blue-600 p-1.5 rounded-xl shadow-lg border-2 border-[#111827]">
               <ShieldCheck size={16} className="text-white" />
