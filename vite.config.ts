@@ -7,7 +7,7 @@ import autoprefixer from 'autoprefixer';
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
   return {
-    base: '/kashika-chopra-portfolio/',
+    base: process.env.BASE_URL || '/kashika-chopra-portfolio/',
     plugins: [react()],
     css: {
       postcss: {
