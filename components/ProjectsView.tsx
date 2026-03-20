@@ -63,25 +63,25 @@ const PROJECTS: ProjectItem[] = [
   },
   {
     id: '3',
-    title: 'Data Mining & Pattern Recognition',
-    role: 'Knowledge Discovery & Modeling',
-    category: 'DATA MINING',
-    categoryTag: 'bg-purple-900/30 text-purple-400',
-    description: 'Extracting meaningful patterns and insights from complex, high-dimensional datasets using advanced dimensionality reduction.',
-    tags: ['Clustering', 'Dimensionality Reduction', 'Knowledge Discovery'],
-    impactLabel: 'FOCUS',
-    impactValue: 'Pattern Discovery',
-    icon: <Database size={18} />,
-    businessProblem: "Extract meaningful patterns and insights from complex, high-dimensional datasets. The goal was to identify hidden relationships and build predictive models for pattern recognition.",
-    datasetDescription: "Multi-dimensional datasets with various feature types including numerical, categorical, and temporal data. Complex relationships and non-linear patterns present.",
-    analysisApproach: "Comprehensive data mining project applying various techniques including feature extraction, dimensionality reduction, clustering, and predictive modeling. Implemented advanced algorithms for pattern recognition and knowledge discovery.",
+    title: 'Venture Capital Investment Analysis',
+    role: 'Market Intelligence & Investment Strategy',
+    category: 'FINANCIAL ANALYTICS',
+    categoryTag: 'bg-orange-900/30 text-orange-400',
+    description: 'Analyzed venture capital funding patterns to identify high-potential markets, industries, and geographies for strategic investment decisions.',
+    tags: ['MongoDB', 'Aggregation Framework', 'Market Analysis', 'Geospatial Analysis'],
+    impactLabel: 'IMPACT',
+    impactValue: 'Data-driven Investment Insights',
+    icon: <Target size={18} />,
+    businessProblem: "Venture capital firms need data-driven insights to identify high-potential markets, industries, and geographies for investment. This project aims to analyze historical venture funding data to uncover trends in funding distribution, company characteristics, and regional investment patterns to support smarter investment decisions.",
+    datasetDescription: "The analysis uses Crunchbase venture capital data stored in JSON format, containing information on startups such as funding amounts, founding year, industry category, employee size, founders, and geographic location. The data was ingested into MongoDB and transformed into analysis-ready collections.",
+    analysisApproach: "Raw Crunchbase data was cleaned, transformed, and aggregated using MongoDB aggregation pipelines to compute key metrics like total funding, founder count, and latest funding year. Exploratory analysis was then performed to study funding trends across industries, time periods, and countries, with a focus on identifying high-growth and risk-adjusted investment opportunities.",
     keyInsights: [
-      "Applied advanced data mining algorithms for pattern discovery",
-      "Performed comprehensive data analysis and visualization",
-      "Built predictive models for pattern recognition tasks",
-      "Identified key patterns and relationships in complex data"
+      "The United States dominates overall venture funding, but several non-US regions show strong growth potential",
+      "UK and other European markets emerge as leading non-US hubs with diversified industry investments",
+      "Certain sectors such as software, biotech, and mobile consistently attract higher funding volumes",
+      "Countries like Japan show lower overall funding but more stable, risk-adjusted investment patterns"
     ],
-    detailedTools: ["Python", "Pandas", "Scikit-learn", "Feature Engineering", "Clustering", "Dimensionality Reduction"]
+    detailedTools: ["Python", "MongoDB & MongoDB Atlas", "MongoDB Aggregation Framework", "Jupyter Notebook", "JSON Data Handling"]
   }
 ];
 

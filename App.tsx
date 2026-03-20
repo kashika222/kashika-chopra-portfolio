@@ -15,7 +15,7 @@ import TimelineView from './components/TimelineView';
 import SidebarItem from './components/SidebarItem';
 import { ViewType } from './types';
 
-const STATIC_PROFILE_IMAGE = "/profile.jpg";
+const STATIC_PROFILE_IMAGE = "/kashika-chopra-portfolio/profile.jpg";
 
 const App: React.FC = () => {
   const [activeView, setActiveView] = useState<ViewType>('overview');
