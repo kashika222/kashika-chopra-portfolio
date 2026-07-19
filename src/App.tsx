@@ -7,7 +7,8 @@ import ContactView from './components/ContactView';
 import SidebarItem from './components/SidebarItem';
 import { ViewType } from './types';
 
-const PROFILE_IMAGE = `${import.meta.env.BASE_URL}photo2.jpg`;
+const SIDEBAR_IMAGE = `${import.meta.env.BASE_URL}profile.jpg`;
+const HERO_IMAGE = `${import.meta.env.BASE_URL}photo2.jpg`;
 
 const NAV: { id: ViewType; label: string; icon: string; title: string }[] = [
   { id: 'overview', label: 'Dashboard', icon: 'dashboard', title: 'Analytics Portfolio' },
@@ -46,7 +47,7 @@ const App: React.FC = () => {
       >
         <div className="flex flex-col items-center py-5 px-3 mb-1">
           <div className="w-14 h-14 rounded-full overflow-hidden mb-2 border-2 border-primary-container">
-            <img src={PROFILE_IMAGE} alt="Kashika Chopra" className="w-full h-full object-cover" />
+            <img src={SIDEBAR_IMAGE} alt="Kashika Chopra" className="w-full h-full object-cover" />
           </div>
           <h1 className="text-lg font-medium text-primary tracking-tight">Kashika Chopra</h1>
           <p className="text-xs text-on-surface-variant opacity-70 mt-0.5">Data Analyst Portfolio</p>
@@ -103,7 +104,7 @@ const App: React.FC = () => {
         </header>
 
         <div className="px-4 md:px-margin-desktop py-4 max-w-7xl mx-auto animate-fade-up">
-          {activeView === 'overview' && <Overview profileImage={PROFILE_IMAGE} onNavigate={go} />}
+          {activeView === 'overview' && <Overview profileImage={HERO_IMAGE} onNavigate={go} />}
           {activeView === 'projects' && <ProjectsView />}
           {activeView === 'skills' && <SkillsView onNavigate={go} />}
           {activeView === 'timeline' && <TimelineView />}
