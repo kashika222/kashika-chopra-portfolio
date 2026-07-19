@@ -55,7 +55,7 @@ const Overview: React.FC<OverviewProps> = ({ profileImage, onNavigate }) => {
           </p>
           <div className="flex flex-wrap gap-4">
             <a
-              href="/resume.pdf"
+              href={`${import.meta.env.BASE_URL}resume.pdf`}
               download="Kashika_Chopra_Resume.pdf"
               className="bg-primary-container text-white px-6 py-3 rounded-xl text-sm font-medium flex items-center gap-2 hover:opacity-90 transition-opacity"
             >

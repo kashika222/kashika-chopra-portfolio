@@ -7,7 +7,7 @@ import ContactView from './components/ContactView';
 import SidebarItem from './components/SidebarItem';
 import { ViewType } from './types';
 
-const PROFILE_IMAGE = '/profile.jpg';
+const PROFILE_IMAGE = `${import.meta.env.BASE_URL}profile.jpg`;
 
 const NAV: { id: ViewType; label: string; icon: string; title: string }[] = [
   { id: 'overview', label: 'Dashboard', icon: 'dashboard', title: 'Analytics Portfolio' },
@@ -92,7 +92,7 @@ const App: React.FC = () => {
           </div>
           <div className="flex items-center gap-3">
             <a
-              href="/resume.pdf"
+              href={`${import.meta.env.BASE_URL}resume.pdf`}
               download="Kashika_Chopra_Resume.pdf"
               className="hidden sm:inline-flex items-center gap-2 bg-primary-container text-white px-4 py-2 rounded-xl text-sm font-medium hover:opacity-90 transition-opacity"
             >

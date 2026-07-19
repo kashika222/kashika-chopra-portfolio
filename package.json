@@ -3,7 +3,7 @@
   "private": true,
   "version": "2.0.0",
   "type": "module",
-  "homepage": "https://kashika222.github.io/",
+  "homepage": "https://kashika222.github.io/kashika-chopra-portfolio/",
   "scripts": {
     "dev": "cp index.source.html index.html && vite",
     "build": "cp index.source.html index.html && tsc && vite build && cp -r dist/* .",
