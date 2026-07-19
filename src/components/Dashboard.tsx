@@ -80,10 +80,7 @@ const Overview: React.FC<OverviewProps> = ({ profileImage, onNavigate }) => {
               alt="Kashika Chopra"
               className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-            <div className="absolute bottom-6 left-6 text-white">
-              <p className="text-2xl font-medium">Kashika Chopra</p>
-            </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
           </div>
         </div>
       </section>
