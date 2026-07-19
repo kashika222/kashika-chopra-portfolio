@@ -4,6 +4,33 @@ import { ProjectItem } from '../types';
 const PROJECTS: ProjectItem[] = [
   {
     id: '1',
+    title: 'StyleSync',
+    role: 'AI-Powered Personal Fashion Intelligence',
+    category: 'AI / Full Stack',
+    description:
+      'Developed an AI-powered consumer analytics platform that digitizes wardrobes and delivers personalized shopping and outfit recommendations using multimodal AI and LLMs.',
+    tags: ['React', 'FastAPI', 'Gemini', 'Supabase'],
+    impactLabel: 'Budget',
+    impactValue: '$0',
+    impactSecondaryLabel: 'Color Palettes',
+    impactSecondaryValue: '12',
+    icon: 'styler',
+    businessProblem:
+      'Consumers struggle to shop sustainably and style what they already own. StyleSync digitizes wardrobes, personalizes color seasons, scores purchases, and generates outfits to reduce wasteful buying.',
+    datasetDescription:
+      'User-uploaded wardrobe images, personal color quiz responses, preference signals, and scraped fashion trend candidates persisted in Supabase with Cloudinary image storage.',
+    analysisApproach:
+      'Built a React + TypeScript frontend and FastAPI backend with multimodal Gemini tagging, rules-based and ReAct agent outfit engines, LLM-as-a-Judge evaluation, and a Playwright trends scraping pipeline.',
+    keyInsights: [
+      'Multimodal AI tagging with structured JSON schemas digitized unstructured wardrobe images into actionable attributes',
+      'Shopping Intelligence utility score combined outfit potential, seasonal versatility, and color match',
+      'Dual outfit engines (rules-based + ReAct agent) with LLM-as-a-Judge improved recommendation quality',
+      'Built entirely on a $0 budget using Gemini, Groq, Hugging Face, Supabase, and Cloudinary',
+    ],
+    detailedTools: ['React', 'TypeScript', 'Vite', 'FastAPI', 'Python', 'Supabase', 'Gemini', 'Groq', 'Cloudinary', 'Playwright'],
+  },
+  {
+    id: '2',
     title: 'Airbnb Incentive Optimization',
     role: 'Churn Prediction & ROI Optimization',
     category: 'Machine Learning',
@@ -30,7 +57,7 @@ const PROJECTS: ProjectItem[] = [
     detailedTools: ['CatBoost', 'Isotonic Regression', 'Stratified K-Fold CV', 'Python', 'Pandas', 'Scikit-learn'],
   },
   {
-    id: '2',
+    id: '3',
     title: 'Bankruptcy Prediction Model',
     role: 'Risk Assessment & Early Warning',
     category: 'Financial Analytics',
@@ -57,7 +84,88 @@ const PROJECTS: ProjectItem[] = [
     detailedTools: ['XGBoost', 'LightGBM', 'CatBoost', 'Gradient Boosting', 'Quantile Transform', 'Python', 'Scikit-learn'],
   },
   {
-    id: '3',
+    id: '4',
+    title: 'AI Product Selection & Ad Optimization',
+    role: 'Multimodal AI for Advertising ROI',
+    category: 'AI / Machine Learning',
+    description:
+      'Built a multimodal AI pipeline combining Gemini feature extraction with an ML ensemble to optimize which products to advertise under a fixed budget.',
+    tags: ['Gemini', 'GBM', 'Random Forest', 'Llama'],
+    impactLabel: 'Business Score',
+    impactValue: '+8',
+    impactSecondaryLabel: 'Ensemble AUC',
+    impactSecondaryValue: '0.67',
+    icon: 'campaign',
+    businessProblem:
+      'Optimize which items from a 331-product t-shirt catalog to advertise under a fixed budget, with an asymmetric business cost matrix for false positives and false negatives.',
+    datasetDescription:
+      'Product images, titles, and pricing for a 331-item catalog, plus engineered features from EDA-selected title keywords, price transformations, color grouping, and interaction terms.',
+    analysisApproach:
+      'Two-layer pipeline: Gemini multimodal feature extraction; then a weighted GBM + Random Forest ensemble versus a Llama 3.3 70B buyer agent with self-consistency voting. Optimized decision thresholds using business cost functions.',
+    keyInsights: [
+      'Pareto-optimal threshold 0.54 delivered a business score of +8',
+      'ML ensemble outperformed the LLM agent on calibrated prediction (business score −14 for the agent)',
+      'LLMs excelled at unlocking unstructured image/title data; supervised ML excelled at calibrated decisions',
+      'Business-cost optimization aligned model outputs with advertising ROI',
+    ],
+    detailedTools: ['Gemini 2.5 Flash Lite', 'GBM', 'Random Forest', 'Llama 3.3 70B', 'Python', 'Scikit-learn'],
+  },
+  {
+    id: '5',
+    title: 'Investment Portfolio Analytics Platform',
+    role: 'Purdue Data Mine · Team Lead',
+    category: 'Financial Analytics',
+    description:
+      'Led a 6–7 member team to develop an interactive portfolio analytics platform with a React frontend and FastAPI/PostgreSQL backend.',
+    tags: ['React', 'FastAPI', 'PostgreSQL', 'Dashboards'],
+    impactLabel: 'Team Size',
+    impactValue: '6–7',
+    impactSecondaryLabel: 'Stack',
+    impactSecondaryValue: 'Full-stack',
+    icon: 'candlestick_chart',
+    businessProblem:
+      'Investment portfolio insights needed to be more accessible through self-service dashboards with search, filtering, sorting, and export for stakeholders.',
+    datasetDescription:
+      'Investment portfolio datasets supporting interactive exploration, filtering, and export of holdings and performance metrics.',
+    analysisApproach:
+      'Led cross-functional delivery of a React + FastAPI/PostgreSQL platform, prioritizing features, coordinating stakeholders, and shipping iterative product enhancements.',
+    keyInsights: [
+      'Self-service dashboards improved accessibility of portfolio insights',
+      'Interactive search, filtering, sorting, and export supported analyst workflows',
+      'Team leadership balanced stakeholder priorities with iterative delivery',
+      'Full-stack architecture connected a React frontend to a FastAPI/PostgreSQL backend',
+    ],
+    detailedTools: ['React', 'FastAPI', 'PostgreSQL', 'Python', 'Git'],
+  },
+  {
+    id: '6',
+    title: 'Senior Co-Living Market Selection',
+    role: 'SafeGraph / BigQuery Market Analytics',
+    category: 'SQL / Market Research',
+    description:
+      'Used SafeGraph foot-traffic and demographic data in BigQuery to identify underserved counties for senior co-living real estate development.',
+    tags: ['BigQuery', 'SQL', 'SafeGraph', 'Market Analysis'],
+    impactLabel: 'Target Counties',
+    impactValue: '28',
+    impactSecondaryLabel: 'From Candidates',
+    impactSecondaryValue: '85',
+    icon: 'map',
+    businessProblem:
+      'Identify underserved markets for senior co-living real estate development using foot-traffic, demographic, and POI data.',
+    datasetDescription:
+      'SafeGraph foot-traffic, demographic, and POI data in Google BigQuery, including CBG codes, age/income demographics, and NAICS competitor facilities.',
+    analysisApproach:
+      'Built advanced multi-CTE SQL pipelines for data cleaning, demographic filtering (50%+ age 65+, avg household income >$100K), competitor exclusion, facility-density metrics, and county readiness scoring.',
+    keyInsights: [
+      'Narrowed 85 candidate counties to 28 underserved target counties',
+      'Prioritized 10 counties into immediate-development vs long-term investment tiers',
+      'Competitor exclusion via NAICS 623312 improved market whitespace detection',
+      'Visit-frequency and facility-density metrics strengthened readiness scoring',
+    ],
+    detailedTools: ['Google BigQuery', 'Advanced SQL', 'SafeGraph', 'CTE pipelines'],
+  },
+  {
+    id: '7',
     title: 'Venture Capital Market Intelligence',
     role: 'Market Intelligence & Investment Strategy',
     category: 'Financial Analytics',
@@ -83,6 +191,33 @@ const PROJECTS: ProjectItem[] = [
     ],
     detailedTools: ['Python', 'MongoDB Atlas', 'MongoDB Aggregation Framework', 'Jupyter Notebook', 'JSON'],
   },
+  {
+    id: '8',
+    title: 'Public Analytics Signal Index (PASI)',
+    role: 'Independent Study · In Progress',
+    category: 'Research / LLMs',
+    description:
+      'Building a transparent scoring index comparing public hiring and corporate disclosure signals between analytics leaders and peer companies.',
+    tags: ['Python', 'LLMs', 'NLP', 'SEC EDGAR'],
+    impactLabel: 'Matched Firms',
+    impactValue: '8',
+    impactSecondaryLabel: 'Pillars',
+    impactSecondaryValue: '3',
+    icon: 'science',
+    businessProblem:
+      'Do public hiring and corporate disclosure signals systematically differ between presumed analytics leaders and peer companies?',
+    datasetDescription:
+      'Job postings and SEC EDGAR 10-K/earnings text for 8 matched firms, scored across Talent, Disclosure, and Innovation pillars.',
+    analysisApproach:
+      'Keyword metrics plus fixed-prompt LLM rubric scoring (0–2 scale, versioned prompts), with human audit of ≥20% of LLM labels and an explicit ethics/limitations framework.',
+    keyInsights: [
+      'Transparent multi-pillar index enables comparison of analytics maturity signals',
+      'Versioned LLM prompts support reproducible rubric scoring',
+      'Human audit of ≥20% of labels strengthens evaluation credibility',
+      'Ethics and limitations framework documents responsible-AI constraints',
+    ],
+    detailedTools: ['Python', 'pandas', 'LLM rubric scoring', 'SEC EDGAR', 'NLP'],
+  },
 ];
 
 const ProjectsView: React.FC = () => {
@@ -98,15 +233,12 @@ const ProjectsView: React.FC = () => {
 
   return (
     <div className="space-y-10">
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-        <div className="max-w-2xl">
-          <h3 className="text-4xl md:text-5xl font-semibold text-on-surface tracking-tight mb-3">Case Studies</h3>
-          <p className="text-lg text-outline leading-relaxed">
-            Exploring the intersection of data-driven insights and business strategy through rigorous analysis and visual
-            storytelling.
-          </p>
-        </div>
-        <div className="relative flex items-center bg-surface-container-low px-4 py-2 rounded-full w-full md:w-64">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <p className="text-lg text-outline leading-relaxed max-w-2xl">
+          Exploring the intersection of data-driven insights and business strategy through rigorous analysis and visual
+          storytelling.
+        </p>
+        <div className="relative flex items-center bg-surface-container-low px-4 py-2 rounded-full w-full md:w-64 shrink-0">
           <span className="material-symbols-outlined text-outline text-[20px]">search</span>
           <input
             value={query}
