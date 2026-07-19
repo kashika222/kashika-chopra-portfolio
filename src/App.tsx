@@ -7,7 +7,7 @@ import ContactView from './components/ContactView';
 import SidebarItem from './components/SidebarItem';
 import { ViewType } from './types';
 
-const PROFILE_IMAGE = `${import.meta.env.BASE_URL}profile.jpg`;
+const PROFILE_IMAGE = `${import.meta.env.BASE_URL}photo2.jpg`;
 
 const NAV: { id: ViewType; label: string; icon: string; title: string }[] = [
   { id: 'overview', label: 'Dashboard', icon: 'dashboard', title: 'Analytics Portfolio' },
