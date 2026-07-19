@@ -184,7 +184,7 @@ const Overview: React.FC<OverviewProps> = ({ profileImage, onNavigate }) => {
               },
               {
                 title: 'Rising Star Award',
-                sub: 'ZS Associates · within 6 months',
+                sub: 'ZS Associates',
                 link: null,
               },
             ].map((cert) => {
