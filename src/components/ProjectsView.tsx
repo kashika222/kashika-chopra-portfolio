@@ -112,33 +112,6 @@ const PROJECTS: ProjectItem[] = [
   },
   {
     id: '5',
-    title: 'Investment Portfolio Analytics Platform',
-    role: 'Purdue Data Mine · Team Lead',
-    category: 'Financial Analytics',
-    description:
-      'Led a 6–7 member team to develop an interactive portfolio analytics platform with a React frontend and FastAPI/PostgreSQL backend.',
-    tags: ['React', 'FastAPI', 'PostgreSQL', 'Dashboards'],
-    impactLabel: 'Team Size',
-    impactValue: '6–7',
-    impactSecondaryLabel: 'Stack',
-    impactSecondaryValue: 'Full-stack',
-    icon: 'candlestick_chart',
-    businessProblem:
-      'Investment portfolio insights needed to be more accessible through self-service dashboards with search, filtering, sorting, and export for stakeholders.',
-    datasetDescription:
-      'Investment portfolio datasets supporting interactive exploration, filtering, and export of holdings and performance metrics.',
-    analysisApproach:
-      'Led cross-functional delivery of a React + FastAPI/PostgreSQL platform, prioritizing features, coordinating stakeholders, and shipping iterative product enhancements.',
-    keyInsights: [
-      'Self-service dashboards improved accessibility of portfolio insights',
-      'Interactive search, filtering, sorting, and export supported analyst workflows',
-      'Team leadership balanced stakeholder priorities with iterative delivery',
-      'Full-stack architecture connected a React frontend to a FastAPI/PostgreSQL backend',
-    ],
-    detailedTools: ['React', 'FastAPI', 'PostgreSQL', 'Python', 'Git'],
-  },
-  {
-    id: '6',
     title: 'Senior Co-Living Market Selection',
     role: 'SafeGraph / BigQuery Market Analytics',
     category: 'SQL / Market Research',
@@ -165,7 +138,7 @@ const PROJECTS: ProjectItem[] = [
     detailedTools: ['Google BigQuery', 'Advanced SQL', 'SafeGraph', 'CTE pipelines'],
   },
   {
-    id: '7',
+    id: '6',
     title: 'Venture Capital Market Intelligence',
     role: 'Market Intelligence & Investment Strategy',
     category: 'Financial Analytics',
@@ -192,7 +165,7 @@ const PROJECTS: ProjectItem[] = [
     detailedTools: ['Python', 'MongoDB Atlas', 'MongoDB Aggregation Framework', 'Jupyter Notebook', 'JSON'],
   },
   {
-    id: '8',
+    id: '7',
     title: 'Public Analytics Signal Index (PASI)',
     role: 'Independent Study · In Progress',
     category: 'Research / LLMs',
@@ -204,19 +177,7 @@ const PROJECTS: ProjectItem[] = [
     impactSecondaryLabel: 'Pillars',
     impactSecondaryValue: '3',
     icon: 'science',
-    businessProblem:
-      'Do public hiring and corporate disclosure signals systematically differ between presumed analytics leaders and peer companies?',
-    datasetDescription:
-      'Job postings and SEC EDGAR 10-K/earnings text for 8 matched firms, scored across Talent, Disclosure, and Innovation pillars.',
-    analysisApproach:
-      'Keyword metrics plus fixed-prompt LLM rubric scoring (0–2 scale, versioned prompts), with human audit of ≥20% of LLM labels and an explicit ethics/limitations framework.',
-    keyInsights: [
-      'Transparent multi-pillar index enables comparison of analytics maturity signals',
-      'Versioned LLM prompts support reproducible rubric scoring',
-      'Human audit of ≥20% of labels strengthens evaluation credibility',
-      'Ethics and limitations framework documents responsible-AI constraints',
-    ],
-    detailedTools: ['Python', 'pandas', 'LLM rubric scoring', 'SEC EDGAR', 'NLP'],
+    inProgress: true,
   },
 ];
 
@@ -254,53 +215,97 @@ const ProjectsView: React.FC = () => {
         {filtered.map((project) => (
           <div
             key={project.id}
-            className="flex flex-col bg-white rounded-2xl overflow-hidden shadow-glass transition-all duration-300 hover:-translate-y-1 hover:shadow-glass-hover group"
+            className={`flex flex-col rounded-2xl overflow-hidden shadow-glass transition-all duration-300 group ${
+              project.inProgress
+                ? 'bg-on-surface text-white'
+                : 'bg-white hover:-translate-y-1 hover:shadow-glass-hover'
+            }`}
           >
-            <div className="h-40 relative overflow-hidden bg-gradient-to-br from-primary-fixed via-secondary-container to-surface-container-high">
+            <div
+              className={`h-40 relative overflow-hidden ${
+                project.inProgress
+                  ? 'bg-gradient-to-br from-primary via-on-primary-fixed-variant to-on-surface'
+                  : 'bg-gradient-to-br from-primary-fixed via-secondary-container to-surface-container-high'
+              }`}
+            >
               <div className="absolute inset-0 bg-gradient-to-t from-black/15 to-transparent z-10" />
               <div className="absolute inset-0 flex items-center justify-center">
-                <span className="material-symbols-outlined text-primary/40 text-[72px] group-hover:scale-110 transition-transform duration-700">
+                <span
+                  className={`material-symbols-outlined text-[72px] ${
+                    project.inProgress ? 'text-white/35' : 'text-primary/40 group-hover:scale-110 transition-transform duration-700'
+                  }`}
+                >
                   {project.icon}
                 </span>
               </div>
               <div className="absolute top-4 right-4 z-20">
-                <span className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-primary">
-                  {project.category}
+                <span
+                  className={`backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold ${
+                    project.inProgress
+                      ? 'bg-white/15 text-white'
+                      : 'bg-white/90 text-primary'
+                  }`}
+                >
+                  {project.inProgress ? 'Work in Progress' : project.category}
                 </span>
               </div>
             </div>
             <div className="p-6 flex flex-col flex-1">
-              <h4 className="text-xl font-medium text-on-surface mb-1">{project.title}</h4>
-              <p className="text-xs text-outline uppercase tracking-wider font-semibold mb-3">{project.role}</p>
-              <p className="text-sm text-on-surface-variant mb-6 line-clamp-2 leading-relaxed">{project.description}</p>
-              <div className="grid grid-cols-2 gap-4 mb-6 p-4 bg-surface-container-low rounded-xl">
-                <div>
-                  <p className="text-[11px] text-outline uppercase tracking-wider">{project.impactLabel}</p>
-                  <p className="text-lg font-bold text-primary">{project.impactValue}</p>
-                </div>
-                <div>
-                  <p className="text-[11px] text-outline uppercase tracking-wider">
-                    {project.impactSecondaryLabel ?? 'Focus'}
-                  </p>
-                  <p className="text-lg font-bold text-primary">
-                    {project.impactSecondaryValue ?? project.category.split(' ')[0]}
-                  </p>
-                </div>
-              </div>
-              <div className="flex flex-wrap gap-2 mb-6">
-                {project.tags.slice(0, 3).map((tag) => (
-                  <span key={tag} className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full font-medium">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <button
-                onClick={() => setSelected(project)}
-                className="mt-auto w-full py-3 bg-primary text-white text-sm font-medium rounded-lg hover:bg-on-primary-fixed-variant transition-all flex items-center justify-center gap-2 group-hover:gap-3"
+              <h4 className={`text-xl font-medium mb-1 ${project.inProgress ? 'text-white' : 'text-on-surface'}`}>
+                {project.title}
+              </h4>
+              <p
+                className={`text-xs uppercase tracking-wider font-semibold mb-3 ${
+                  project.inProgress ? 'text-white/60' : 'text-outline'
+                }`}
               >
-                View Analysis
-                <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
-              </button>
+                {project.role}
+              </p>
+              <p
+                className={`text-sm mb-6 line-clamp-2 leading-relaxed ${
+                  project.inProgress ? 'text-white/75' : 'text-on-surface-variant'
+                }`}
+              >
+                {project.description}
+              </p>
+              {!project.inProgress && (
+                <>
+                  <div className="grid grid-cols-2 gap-4 mb-6 p-4 bg-surface-container-low rounded-xl">
+                    <div>
+                      <p className="text-[11px] text-outline uppercase tracking-wider">{project.impactLabel}</p>
+                      <p className="text-lg font-bold text-primary">{project.impactValue}</p>
+                    </div>
+                    <div>
+                      <p className="text-[11px] text-outline uppercase tracking-wider">
+                        {project.impactSecondaryLabel ?? 'Focus'}
+                      </p>
+                      <p className="text-lg font-bold text-primary">
+                        {project.impactSecondaryValue ?? project.category.split(' ')[0]}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.tags.slice(0, 3).map((tag) => (
+                      <span key={tag} className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full font-medium">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <button
+                    onClick={() => setSelected(project)}
+                    className="mt-auto w-full py-3 bg-primary text-white text-sm font-medium rounded-lg hover:bg-on-primary-fixed-variant transition-all flex items-center justify-center gap-2 group-hover:gap-3"
+                  >
+                    View Analysis
+                    <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+                  </button>
+                </>
+              )}
+              {project.inProgress && (
+                <div className="mt-auto w-full py-3 bg-white/10 text-white/80 text-sm font-medium rounded-lg flex items-center justify-center gap-2 cursor-default">
+                  <span className="material-symbols-outlined text-[18px]">hourglass_top</span>
+                  Work in Progress
+                </div>
+              )}
             </div>
           </div>
         ))}
@@ -384,15 +389,6 @@ const ProjectsView: React.FC = () => {
                       ))}
                     </div>
                   </section>
-                  <div className="bg-primary/10 p-4 rounded-2xl border border-primary/15 flex items-center justify-between">
-                    <div>
-                      <p className="text-[10px] text-primary font-bold uppercase tracking-widest mb-1">Impact Result</p>
-                      <p className="text-2xl font-bold text-on-surface">{selected.impactValue}</p>
-                    </div>
-                    <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white">
-                      <span className="material-symbols-outlined">analytics</span>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>

@@ -11,7 +11,7 @@ const PROFILE_IMAGE = `${import.meta.env.BASE_URL}profile.jpg`;
 
 const NAV: { id: ViewType; label: string; icon: string; title: string }[] = [
   { id: 'overview', label: 'Dashboard', icon: 'dashboard', title: 'Analytics Portfolio' },
-  { id: 'projects', label: 'Projects', icon: 'folder_special', title: 'Case Studies' },
+  { id: 'projects', label: 'Projects', icon: 'folder_special', title: 'Projects' },
   { id: 'skills', label: 'Skills', icon: 'psychology', title: 'Skills Matrix' },
   { id: 'timeline', label: 'Timeline', icon: 'history_edu', title: 'Career Trajectory' },
   { id: 'contact', label: 'Contact', icon: 'mail', title: 'Get in Touch' },

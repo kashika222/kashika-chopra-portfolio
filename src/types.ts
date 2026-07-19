@@ -31,6 +31,7 @@ export interface ProjectItem {
   analysisApproach?: string;
   keyInsights?: string[];
   detailedTools?: string[];
+  inProgress?: boolean;
 }
 
 export interface TimelineItem {
