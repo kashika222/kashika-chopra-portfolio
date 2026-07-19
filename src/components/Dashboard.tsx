@@ -45,7 +45,7 @@ const Overview: React.FC<OverviewProps> = ({ profileImage, onNavigate }) => {
         <div className="md:col-span-2 glass-card p-8 flex flex-col justify-center transition-all duration-300 hover:-translate-y-1 hover:shadow-glass-hover">
           <div className="flex items-center gap-2 text-primary mb-2">
             <span className="material-symbols-outlined text-[20px]">auto_awesome</span>
-            <span className="text-sm font-medium uppercase tracking-widest">Business Analyst</span>
+            <span className="text-sm font-medium uppercase tracking-widest">Analytics Professional</span>
           </div>
           <h3 className="text-3xl md:text-5xl font-semibold text-on-surface mb-4 leading-tight tracking-tight">
             Solving complex problems with <span className="text-primary italic">data clarity</span>.
@@ -83,31 +83,9 @@ const Overview: React.FC<OverviewProps> = ({ profileImage, onNavigate }) => {
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
             <div className="absolute bottom-6 left-6 text-white">
               <p className="text-2xl font-medium">Kashika Chopra</p>
-              <p className="text-sm opacity-80">Based in West Lafayette, IN</p>
             </div>
           </div>
         </div>
-      </section>
-
-      {/* KPI Grid */}
-      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {[
-          { label: 'Total Experience', value: '3+', unit: 'Years', border: 'border-primary' },
-          { label: 'Power BI Users', value: '400+', unit: 'Stakeholders', border: 'border-tertiary-container' },
-          { label: 'Reporting Accuracy', value: '40%', unit: 'Improvement', border: 'border-outline' },
-          { label: 'Process Complexity', value: '78%', unit: 'Reduction', border: 'border-primary-fixed-dim' },
-        ].map((kpi) => (
-          <div
-            key={kpi.label}
-            className={`glass-card p-6 border-l-4 ${kpi.border} transition-all duration-300 hover:-translate-y-1 hover:shadow-glass-hover`}
-          >
-            <p className="text-sm font-medium text-on-surface-variant mb-1">{kpi.label}</p>
-            <div className="flex items-baseline gap-2">
-              <span className="text-4xl font-bold text-primary">{kpi.value}</span>
-              <span className="text-on-surface-variant text-sm font-medium">{kpi.unit}</span>
-            </div>
-          </div>
-        ))}
       </section>
 
       {/* Bento: About + Activity / Education + Certs */}
