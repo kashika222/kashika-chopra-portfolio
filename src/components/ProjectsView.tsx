@@ -270,20 +270,6 @@ const ProjectsView: React.FC = () => {
               </p>
               {!project.inProgress && (
                 <>
-                  <div className="grid grid-cols-2 gap-4 mb-6 p-4 bg-surface-container-low rounded-xl">
-                    <div>
-                      <p className="text-[11px] text-outline uppercase tracking-wider">{project.impactLabel}</p>
-                      <p className="text-lg font-bold text-primary">{project.impactValue}</p>
-                    </div>
-                    <div>
-                      <p className="text-[11px] text-outline uppercase tracking-wider">
-                        {project.impactSecondaryLabel ?? 'Focus'}
-                      </p>
-                      <p className="text-lg font-bold text-primary">
-                        {project.impactSecondaryValue ?? project.category.split(' ')[0]}
-                      </p>
-                    </div>
-                  </div>
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.tags.slice(0, 3).map((tag) => (
                       <span key={tag} className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full font-medium">
