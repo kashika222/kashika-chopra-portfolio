@@ -107,34 +107,34 @@ const TIMELINE: TimelineItem[] = [
 
 const TimelineView: React.FC = () => {
   return (
-    <div className="space-y-12">
+    <div className="space-y-6">
       <div className="max-w-4xl">
-        <span className="text-primary text-xs font-semibold tracking-widest uppercase mb-2 block">Professional Journey</span>
-        <h3 className="text-4xl md:text-5xl font-semibold text-on-surface mb-6 tracking-tight">Career Trajectory</h3>
-        <p className="text-lg text-on-surface-variant max-w-2xl leading-relaxed">
+        <span className="text-primary text-xs font-semibold tracking-widest uppercase mb-1 block">Professional Journey</span>
+        <h3 className="text-3xl md:text-4xl font-semibold text-on-surface mb-3 tracking-tight">Career Trajectory</h3>
+        <p className="text-base text-on-surface-variant max-w-2xl leading-relaxed">
           A visual narrative of growth across consulting and analytics — from foundational engineering through enterprise BI
           delivery to AI-powered spend analytics.
         </p>
       </div>
 
-      <section className="relative pb-8">
+      <section className="relative pb-4">
         <div className="absolute left-1/2 -translate-x-1/2 h-full w-[2px] bg-gradient-to-b from-outline-variant via-primary-container to-outline-variant opacity-40 hidden md:block" />
 
-        <div className="space-y-16 relative">
+        <div className="space-y-8 relative">
           {TIMELINE.map((item, index) => {
             const isLeft = index % 2 === 0;
             return (
-              <div key={item.id} className="flex flex-col md:flex-row items-center gap-8 md:gap-0 group">
+              <div key={item.id} className="flex flex-col md:flex-row items-center gap-4 md:gap-0 group">
                 {/* Left column */}
-                <div className={`md:w-1/2 ${isLeft ? 'md:pr-16 md:text-right order-1' : 'md:pr-16 order-3 md:order-1'}`}>
+                <div className={`md:w-1/2 ${isLeft ? 'md:pr-8 md:text-right order-1' : 'md:pr-8 order-3 md:order-1'}`}>
                   {isLeft ? (
-                    <div className="bg-white p-6 rounded-2xl shadow-glass border border-surface-container transition-all group-hover:translate-x-1">
-                      <span className="text-tertiary font-bold text-sm mb-2 block">{item.period}</span>
-                      <h4 className="text-xl font-medium text-primary mb-1">{item.title}</h4>
-                      <p className="text-sm text-on-secondary-container mb-4 font-semibold uppercase tracking-tight">
+                    <div className="bg-white p-4 md:p-5 rounded-2xl shadow-glass border border-surface-container transition-all group-hover:translate-x-1">
+                      <span className="text-tertiary font-bold text-sm mb-1 block">{item.period}</span>
+                      <h4 className="text-lg font-medium text-primary mb-0.5">{item.title}</h4>
+                      <p className="text-sm text-on-secondary-container mb-3 font-semibold uppercase tracking-tight">
                         {item.company}
                       </p>
-                      <ul className="text-on-surface-variant mb-6 text-sm leading-relaxed space-y-2 text-left">
+                      <ul className="text-on-surface-variant mb-3 text-sm leading-relaxed space-y-1.5 text-left">
                         {item.responsibilities.map((r) => (
                           <li key={r} className="flex gap-2 md:justify-end">
                             <span className="md:order-2">{r}</span>
@@ -142,11 +142,11 @@ const TimelineView: React.FC = () => {
                           </li>
                         ))}
                       </ul>
-                      <div className={`flex flex-wrap gap-2 ${isLeft ? 'md:justify-end' : ''}`}>
+                      <div className={`flex flex-wrap gap-1.5 ${isLeft ? 'md:justify-end' : ''}`}>
                         {item.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="bg-secondary-container/40 text-on-secondary-container px-3 py-1 rounded-full text-xs font-semibold"
+                            className="bg-secondary-container/40 text-on-secondary-container px-2.5 py-0.5 rounded-full text-xs font-semibold"
                           >
                             {tag}
                           </span>
@@ -154,21 +154,21 @@ const TimelineView: React.FC = () => {
                       </div>
                     </div>
                   ) : item.metrics ? (
-                    <div className="grid grid-cols-2 gap-4 md:justify-items-end">
+                    <div className="grid grid-cols-2 gap-3 md:justify-items-end">
                       {item.metrics.map((m) => (
                         <div
                           key={m.label}
-                          className="bg-surface-container-low p-4 rounded-xl border border-outline-variant/20 w-full"
+                          className="bg-surface-container-low p-3 rounded-xl border border-outline-variant/20 w-full"
                         >
-                          <span className="text-primary font-bold text-2xl block">{m.value}</span>
+                          <span className="text-primary font-bold text-xl block">{m.value}</span>
                           <span className="text-[10px] text-on-surface-variant uppercase font-bold">{m.label}</span>
                         </div>
                       ))}
                     </div>
                   ) : (
-                    <div className="hidden md:flex gap-4 justify-end">
-                      <div className="w-16 h-16 rounded-2xl bg-tertiary-container/20 flex items-center justify-center">
-                        <span className="material-symbols-outlined text-tertiary text-3xl">{item.icon}</span>
+                    <div className="hidden md:flex gap-3 justify-end">
+                      <div className="w-12 h-12 rounded-2xl bg-tertiary-container/20 flex items-center justify-center">
+                        <span className="material-symbols-outlined text-tertiary text-2xl">{item.icon}</span>
                       </div>
                     </div>
                   )}
@@ -176,23 +176,23 @@ const TimelineView: React.FC = () => {
 
                 {/* Center node */}
                 <div
-                  className={`z-10 w-12 h-12 rounded-full flex items-center justify-center ring-8 ring-background order-2 text-white ${
+                  className={`z-10 w-10 h-10 rounded-full flex items-center justify-center ring-4 ring-background order-2 text-white ${
                     item.type === 'academic' ? 'bg-tertiary' : 'bg-primary'
                   }`}
                 >
-                  <span className="material-symbols-outlined">{item.icon}</span>
+                  <span className="material-symbols-outlined text-[20px]">{item.icon}</span>
                 </div>
 
                 {/* Right column */}
-                <div className={`md:w-1/2 ${isLeft ? 'md:pl-16 order-3' : 'md:pl-16 order-1 md:order-3'}`}>
+                <div className={`md:w-1/2 ${isLeft ? 'md:pl-8 order-3' : 'md:pl-8 order-1 md:order-3'}`}>
                   {!isLeft ? (
-                    <div className="bg-white p-6 rounded-2xl shadow-glass border border-surface-container transition-all group-hover:-translate-x-1">
-                      <span className="text-tertiary font-bold text-sm mb-2 block">{item.period}</span>
-                      <h4 className="text-xl font-medium text-primary mb-1">{item.title}</h4>
-                      <p className="text-sm text-on-secondary-container mb-4 font-semibold uppercase tracking-tight">
+                    <div className="bg-white p-4 md:p-5 rounded-2xl shadow-glass border border-surface-container transition-all group-hover:-translate-x-1">
+                      <span className="text-tertiary font-bold text-sm mb-1 block">{item.period}</span>
+                      <h4 className="text-lg font-medium text-primary mb-0.5">{item.title}</h4>
+                      <p className="text-sm text-on-secondary-container mb-3 font-semibold uppercase tracking-tight">
                         {item.company}
                       </p>
-                      <ul className="text-on-surface-variant mb-6 text-sm leading-relaxed space-y-2">
+                      <ul className="text-on-surface-variant mb-3 text-sm leading-relaxed space-y-1.5">
                         {item.responsibilities.map((r) => (
                           <li key={r} className="flex gap-2">
                             <span className="text-primary mt-1.5 w-1 h-1 rounded-full bg-primary shrink-0" />
@@ -200,11 +200,11 @@ const TimelineView: React.FC = () => {
                           </li>
                         ))}
                       </ul>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-1.5">
                         {item.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="bg-primary-container/20 text-on-primary-container px-3 py-1 rounded-full text-xs font-semibold"
+                            className="bg-primary-container/20 text-on-primary-container px-2.5 py-0.5 rounded-full text-xs font-semibold"
                           >
                             {tag}
                           </span>
@@ -212,19 +212,19 @@ const TimelineView: React.FC = () => {
                       </div>
                     </div>
                   ) : item.metrics ? (
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-2 gap-3">
                       {item.metrics.map((m) => (
                         <div
                           key={m.label}
-                          className="bg-surface-container-low p-4 rounded-xl border border-outline-variant/20"
+                          className="bg-surface-container-low p-3 rounded-xl border border-outline-variant/20"
                         >
-                          <span className="text-primary font-bold text-2xl block">{m.value}</span>
+                          <span className="text-primary font-bold text-xl block">{m.value}</span>
                           <span className="text-[10px] text-on-surface-variant uppercase font-bold">{m.label}</span>
                         </div>
                       ))}
                     </div>
                   ) : (
-                    <div className="hidden md:block bg-surface-container-high/30 h-28 rounded-3xl border border-dashed border-outline-variant" />
+                    <div className="hidden md:block bg-surface-container-high/30 h-20 rounded-3xl border border-dashed border-outline-variant" />
                   )}
                 </div>
               </div>
@@ -234,14 +234,14 @@ const TimelineView: React.FC = () => {
       </section>
 
       {/* Industry focus bento */}
-      <section className="bg-surface-container-low rounded-3xl p-8 md:p-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          <div className="md:col-span-2 bg-white p-8 rounded-3xl shadow-glass">
-            <h4 className="text-xl font-medium text-primary mb-3">Core Competencies</h4>
-            <p className="text-on-surface-variant text-sm mb-6 leading-relaxed">
+      <section className="bg-surface-container-low rounded-3xl p-6 md:p-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div className="md:col-span-2 bg-white p-6 rounded-3xl shadow-glass">
+            <h4 className="text-lg font-medium text-primary mb-2">Core Competencies</h4>
+            <p className="text-on-surface-variant text-sm mb-4 leading-relaxed">
               A blend of technical expertise and strategic consulting, refined through high-stakes client engagements.
             </p>
-            <div className="space-y-4">
+            <div className="space-y-3">
               {[
                 { label: 'Business Intelligence', width: '95%' },
                 { label: 'SQL & Data Modeling', width: '90%' },
@@ -256,26 +256,26 @@ const TimelineView: React.FC = () => {
               ))}
             </div>
           </div>
-          <div className="md:col-span-2 bg-primary-container p-8 rounded-3xl flex flex-col justify-center">
-            <h4 className="text-on-primary-container text-xl font-medium mb-4">Industry Focus</h4>
-            <div className="flex flex-wrap gap-3">
+          <div className="md:col-span-2 bg-primary-container p-6 rounded-3xl flex flex-col justify-center">
+            <h4 className="text-on-primary-container text-lg font-medium mb-3">Industry Focus</h4>
+            <div className="flex flex-wrap gap-2">
               {['Pharmaceuticals', 'CPG / Procurement', 'Consulting', 'Financial Analytics'].map((tag) => (
-                <span key={tag} className="bg-white/20 text-on-primary-container px-4 py-2 rounded-xl text-sm font-bold">
+                <span key={tag} className="bg-white/20 text-on-primary-container px-3 py-1.5 rounded-xl text-sm font-bold">
                   {tag}
                 </span>
               ))}
             </div>
           </div>
-          <div className="bg-secondary-container p-6 rounded-3xl flex flex-col items-center justify-center text-center">
-            <span className="material-symbols-outlined text-4xl text-on-secondary-container mb-2">groups</span>
+          <div className="bg-secondary-container p-5 rounded-3xl flex flex-col items-center justify-center text-center">
+            <span className="material-symbols-outlined text-3xl text-on-secondary-container mb-1">groups</span>
             <span className="text-on-secondary-container font-bold text-sm">Stakeholder Partnership</span>
           </div>
-          <div className="bg-tertiary-container p-6 rounded-3xl flex flex-col items-center justify-center text-center">
-            <span className="material-symbols-outlined text-4xl text-on-tertiary-container mb-2">diversity_3</span>
+          <div className="bg-tertiary-container p-5 rounded-3xl flex flex-col items-center justify-center text-center">
+            <span className="material-symbols-outlined text-3xl text-on-tertiary-container mb-1">diversity_3</span>
             <span className="text-on-tertiary-container font-bold text-sm">Team Mentorship</span>
           </div>
-          <div className="md:col-span-2 bg-white p-6 rounded-3xl shadow-glass flex items-center gap-4">
-            <span className="material-symbols-outlined text-4xl text-primary">emoji_events</span>
+          <div className="md:col-span-2 bg-white p-5 rounded-3xl shadow-glass flex items-center gap-3">
+            <span className="material-symbols-outlined text-3xl text-primary">emoji_events</span>
             <div>
               <p className="font-bold text-on-surface">Rising Star Award</p>
               <p className="text-sm text-on-surface-variant">ZS Associates — within 6 months of joining</p>
