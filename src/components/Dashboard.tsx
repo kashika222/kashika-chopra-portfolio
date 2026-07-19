@@ -1,9 +1,8 @@
 import React from 'react';
-import { EducationItem, ViewType } from '../types';
+import { EducationItem } from '../types';
 
 interface OverviewProps {
   profileImage: string;
-  onNavigate: (view: ViewType) => void;
 }
 
 const EDUCATION: EducationItem[] = [
@@ -37,7 +36,7 @@ const ACTIVITIES = [
   },
 ];
 
-const Overview: React.FC<OverviewProps> = ({ profileImage, onNavigate }) => {
+const Overview: React.FC<OverviewProps> = ({ profileImage }) => {
   return (
     <div className="space-y-6">
       {/* Hero */}
@@ -88,144 +87,132 @@ const Overview: React.FC<OverviewProps> = ({ profileImage, onNavigate }) => {
         </div>
       </section>
 
-      {/* Bento: About + Activity / Education + Certs */}
-      <section className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-        <div className="lg:col-span-8 space-y-6">
-          <div className="glass-card p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-glass-hover">
-            <h4 className="text-2xl font-medium text-on-surface mb-4 flex items-center gap-2">
-              <span className="material-symbols-outlined text-primary">person</span>
-              About Me
-            </h4>
-            <div className="text-base text-on-surface-variant space-y-4 leading-relaxed">
-              <p>
-                Graduate student at Purdue University&apos;s{' '}
-                <span className="text-on-surface font-semibold italic underline decoration-primary-container/60 underline-offset-4 decoration-2">
-                  MS in Business Analytics and Information Management
-                </span>{' '}
-                program with experience in consulting, collaborating with cross-functional teams and clients to develop and manage analytical solutions.
-              </p>
-              <p>
-                Passionate about continuous learning, committed to{' '}
-                <span className="text-primary font-semibold">transforming complex datasets into actionable insights</span> and
-                leveraging analytics tools and methodologies to facilitate informed business decisions.
-              </p>
-              <p className="text-sm">
-                <span className="text-primary font-medium">Key Skills:</span> Power BI, Qlik Sense, SAS, SQL, Python, Snowflake,
-                Jira, Azure DevOps, AWS (Certified Cloud Practitioner)
-              </p>
-            </div>
-          </div>
-
-          <div className="glass-card p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-glass-hover">
-            <h4 className="text-2xl font-medium text-on-surface mb-6 flex items-center gap-2">
-              <span className="material-symbols-outlined text-primary">school</span>
-              Education
-            </h4>
-            <div className="space-y-6">
-              {EDUCATION.map((item) => (
-                <div key={item.degree} className="flex gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center shrink-0">
-                    <span className="material-symbols-outlined text-primary">workspace_premium</span>
-                  </div>
-                  <div>
-                    <h5 className="text-lg font-bold text-on-surface">{item.degree}</h5>
-                    <p className="text-on-surface-variant text-base">
-                      {item.institution} · {item.period}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
+      {/* About + Recent Activity */}
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+        <div className="lg:col-span-8 glass-card p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-glass-hover">
+          <h4 className="text-2xl font-medium text-on-surface mb-4 flex items-center gap-2">
+            <span className="material-symbols-outlined text-primary">person</span>
+            About Me
+          </h4>
+          <div className="text-base text-on-surface-variant space-y-4 leading-relaxed">
+            <p>
+              Graduate student at Purdue University&apos;s{' '}
+              <span className="text-on-surface font-semibold italic underline decoration-primary-container/60 underline-offset-4 decoration-2">
+                MS in Business Analytics and Information Management
+              </span>{' '}
+              program with experience in consulting, collaborating with cross-functional teams and clients to develop and manage analytical solutions.
+            </p>
+            <p>
+              Passionate about continuous learning, committed to{' '}
+              <span className="text-primary font-semibold">transforming complex datasets into actionable insights</span> and
+              leveraging analytics tools and methodologies to facilitate informed business decisions.
+            </p>
+            <p className="text-sm">
+              <span className="text-primary font-medium">Key Skills:</span> Power BI, Qlik Sense, SAS, SQL, Python, Snowflake,
+              Jira, Azure DevOps, AWS (Certified Cloud Practitioner)
+            </p>
           </div>
         </div>
 
-        <div className="lg:col-span-4 space-y-6">
-          <div className="glass-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-glass-hover">
-            <h4 className="text-sm font-bold text-on-surface mb-6 uppercase tracking-widest">Recent Activity</h4>
-            <div className="space-y-6 relative before:absolute before:left-[19px] before:top-2 before:bottom-2 before:w-[2px] before:bg-surface-container-high">
-              {ACTIVITIES.map((activity, i) => (
-                <div key={activity.title} className="relative pl-10">
-                  <div className="absolute left-0 top-1 w-[40px] h-[40px] flex items-center justify-center">
-                    <div
-                      className={`w-3 h-3 rounded-full ring-4 ring-white ${
-                        i === 0 ? 'bg-primary' : i === 1 ? 'bg-tertiary-container' : 'bg-outline'
-                      }`}
-                    />
-                  </div>
-                  <p className="text-sm font-bold text-on-surface">{activity.title}</p>
-                  <p className="text-xs text-on-surface-variant">{activity.detail}</p>
-                  <p className="text-[10px] text-outline mt-1 uppercase tracking-wide">{activity.time}</p>
+        <div className="lg:col-span-4 glass-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-glass-hover">
+          <h4 className="text-sm font-bold text-on-surface mb-6 uppercase tracking-widest">Recent Activity</h4>
+          <div className="space-y-6 relative before:absolute before:left-[19px] before:top-2 before:bottom-2 before:w-[2px] before:bg-surface-container-high">
+            {ACTIVITIES.map((activity, i) => (
+              <div key={activity.title} className="relative pl-10">
+                <div className="absolute left-0 top-1 w-[40px] h-[40px] flex items-center justify-center">
+                  <div
+                    className={`w-3 h-3 rounded-full ring-4 ring-white ${
+                      i === 0 ? 'bg-primary' : i === 1 ? 'bg-tertiary-container' : 'bg-outline'
+                    }`}
+                  />
                 </div>
-              ))}
-            </div>
+                <p className="text-sm font-bold text-on-surface">{activity.title}</p>
+                <p className="text-xs text-on-surface-variant">{activity.detail}</p>
+                <p className="text-[10px] text-outline mt-1 uppercase tracking-wide">{activity.time}</p>
+              </div>
+            ))}
           </div>
+        </div>
+      </section>
 
-          <div className="glass-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-glass-hover">
-            <h4 className="text-sm font-bold text-on-surface mb-6 uppercase tracking-widest">Certifications</h4>
-            <div className="space-y-4">
-              {[
-                {
-                  title: 'AWS Certified Cloud Practitioner',
-                  sub: 'CLF-C02',
-                  link: 'https://www.credly.com/badges/20c28916-f11f-4109-a23a-296931ee4ab6/public_url',
-                },
-                {
-                  title: 'Microsoft Azure AI Fundamentals',
-                  sub: 'AI-900',
-                  link: 'https://www.credly.com/badges/e3f2297b-a58f-49d8-ac9f-d4e4fa0fed9c/public_url',
-                },
-                {
-                  title: 'Rising Star Award',
-                  sub: 'ZS Associates · within 6 months',
-                  link: null,
-                },
-              ].map((cert) => {
-                const inner = (
-                  <>
-                    <div className="flex items-center gap-3">
-                      <span
-                        className="material-symbols-outlined text-primary"
-                        style={{ fontVariationSettings: "'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24" }}
-                      >
-                        verified
-                      </span>
-                      <div>
-                        <p className="text-sm font-medium text-on-surface">{cert.title}</p>
-                        <p className="text-[11px] text-on-surface-variant">{cert.sub}</p>
-                      </div>
+      {/* Education + Certifications — equal height */}
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+        <div className="lg:col-span-8 glass-card p-8 h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-glass-hover">
+          <h4 className="text-2xl font-medium text-on-surface mb-6 flex items-center gap-2">
+            <span className="material-symbols-outlined text-primary">school</span>
+            Education
+          </h4>
+          <div className="space-y-6">
+            {EDUCATION.map((item) => (
+              <div key={item.degree} className="flex gap-4">
+                <div className="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center shrink-0">
+                  <span className="material-symbols-outlined text-primary">workspace_premium</span>
+                </div>
+                <div>
+                  <h5 className="text-lg font-bold text-on-surface">{item.degree}</h5>
+                  <p className="text-on-surface-variant text-base">
+                    {item.institution} · {item.period}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="lg:col-span-4 glass-card p-6 h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-glass-hover">
+          <h4 className="text-sm font-bold text-on-surface mb-6 uppercase tracking-widest">Certifications</h4>
+          <div className="space-y-4">
+            {[
+              {
+                title: 'AWS Certified Cloud Practitioner',
+                sub: 'CLF-C02',
+                link: 'https://www.credly.com/badges/20c28916-f11f-4109-a23a-296931ee4ab6/public_url',
+              },
+              {
+                title: 'Microsoft Azure AI Fundamentals',
+                sub: 'AI-900',
+                link: 'https://www.credly.com/badges/e3f2297b-a58f-49d8-ac9f-d4e4fa0fed9c/public_url',
+              },
+              {
+                title: 'Rising Star Award',
+                sub: 'ZS Associates · within 6 months',
+                link: null,
+              },
+            ].map((cert) => {
+              const inner = (
+                <>
+                  <div className="flex items-center gap-3">
+                    <span
+                      className="material-symbols-outlined text-primary"
+                      style={{ fontVariationSettings: "'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24" }}
+                    >
+                      verified
+                    </span>
+                    <div>
+                      <p className="text-sm font-medium text-on-surface">{cert.title}</p>
+                      <p className="text-[11px] text-on-surface-variant">{cert.sub}</p>
                     </div>
-                    {cert.link && (
-                      <span className="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform">
-                        chevron_right
-                      </span>
-                    )}
-                  </>
-                );
-                const className =
-                  'p-4 bg-surface-container-low rounded-xl flex justify-between items-center group hover:bg-surface-container-high transition-colors';
-                return cert.link ? (
-                  <a key={cert.title} href={cert.link} target="_blank" rel="noopener noreferrer" className={className}>
-                    {inner}
-                  </a>
-                ) : (
-                  <div key={cert.title} className={className}>
-                    {inner}
                   </div>
-                );
-              })}
-            </div>
+                  {cert.link && (
+                    <span className="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform">
+                      chevron_right
+                    </span>
+                  )}
+                </>
+              );
+              const className =
+                'p-4 bg-surface-container-low rounded-xl flex justify-between items-center group hover:bg-surface-container-high transition-colors';
+              return cert.link ? (
+                <a key={cert.title} href={cert.link} target="_blank" rel="noopener noreferrer" className={className}>
+                  {inner}
+                </a>
+              ) : (
+                <div key={cert.title} className={className}>
+                  {inner}
+                </div>
+              );
+            })}
           </div>
-
-          <button
-            onClick={() => onNavigate('contact')}
-            className="w-full glass-card p-4 flex items-center justify-between text-primary hover:bg-secondary-container/30 transition-colors"
-          >
-            <span className="text-sm font-medium flex items-center gap-2">
-              <span className="material-symbols-outlined">mail</span>
-              Get in touch
-            </span>
-            <span className="material-symbols-outlined">arrow_forward</span>
-          </button>
         </div>
       </section>
     </div>
