@@ -160,7 +160,7 @@ const Overview: React.FC<OverviewProps> = ({ profileImage, onNavigate }) => {
           </div>
           <button
             onClick={() => onNavigate('timeline')}
-            className="mt-auto pt-8 flex items-center gap-2 text-primary text-sm font-semibold group self-start hover:gap-3 transition-all"
+            className="mt-auto pt-8 flex items-center gap-2 text-primary text-lg font-semibold italic group self-start hover:gap-3 transition-all"
           >
             Check out the full journey!
             <span className="material-symbols-outlined text-[18px] group-hover:translate-x-0.5 transition-transform">
