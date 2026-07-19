@@ -1,0 +1,257 @@
+import React from 'react';
+import { EducationItem, ViewType } from '../types';
+
+interface OverviewProps {
+  profileImage: string;
+  onNavigate: (view: ViewType) => void;
+}
+
+const EDUCATION: EducationItem[] = [
+  {
+    degree: 'MS in Business Analytics & Information Management',
+    institution: 'Purdue University, Daniels School of Business',
+    period: 'Aug 2025 – Aug 2026',
+  },
+  {
+    degree: 'BTech in Computer Science',
+    institution: 'University of Petroleum and Energy Studies (UPES)',
+    period: 'July 2018 – May 2022',
+  },
+];
+
+const ACTIVITIES = [
+  {
+    title: 'Halfway through grad school… still standing',
+    time: 'Ongoing',
+    detail: 'MSBAIM @ Purdue',
+  },
+  {
+    title: 'Survived a Midwest winter (barely)',
+    time: 'Winter 2025',
+    detail: 'West Lafayette, IN',
+  },
+  {
+    title: 'Made the perfect cup of coffee (life peaked)',
+    time: 'Daily achievement',
+    detail: 'Life skills',
+  },
+];
+
+const Overview: React.FC<OverviewProps> = ({ profileImage, onNavigate }) => {
+  return (
+    <div className="space-y-6">
+      {/* Hero */}
+      <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="md:col-span-2 glass-card p-8 flex flex-col justify-center transition-all duration-300 hover:-translate-y-1 hover:shadow-glass-hover">
+          <div className="flex items-center gap-2 text-primary mb-2">
+            <span className="material-symbols-outlined text-[20px]">auto_awesome</span>
+            <span className="text-sm font-medium uppercase tracking-widest">Business Analyst</span>
+          </div>
+          <h3 className="text-3xl md:text-5xl font-semibold text-on-surface mb-4 leading-tight tracking-tight">
+            Solving complex problems with <span className="text-primary italic">data clarity</span>.
+          </h3>
+          <p className="text-lg text-on-surface-variant max-w-xl mb-8 leading-relaxed">
+            Over 3 years of consulting experience delivering business intelligence and analytics solutions for Fortune 500 organizations. Skilled in SQL, Power BI, Snowflake, and data visualization.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <a
+              href="/resume.pdf"
+              download="Kashika_Chopra_Resume.pdf"
+              className="bg-primary-container text-white px-6 py-3 rounded-xl text-sm font-medium flex items-center gap-2 hover:opacity-90 transition-opacity"
+            >
+              <span className="material-symbols-outlined text-[18px]">download</span>
+              Download CV
+            </a>
+            <a
+              href="https://github.com/kashika222"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-outline-variant text-primary px-6 py-3 rounded-xl text-sm font-medium hover:bg-surface-container-low transition-colors"
+            >
+              View GitHub
+            </a>
+          </div>
+        </div>
+
+        <div className="glass-card overflow-hidden group min-h-[280px] transition-all duration-300 hover:-translate-y-1 hover:shadow-glass-hover">
+          <div className="h-full w-full relative min-h-[280px]">
+            <img
+              src={profileImage}
+              alt="Kashika Chopra"
+              className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+            <div className="absolute bottom-6 left-6 text-white">
+              <p className="text-2xl font-medium">Kashika Chopra</p>
+              <p className="text-sm opacity-80">Based in West Lafayette, IN</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* KPI Grid */}
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[
+          { label: 'Total Experience', value: '3+', unit: 'Years', border: 'border-primary' },
+          { label: 'Power BI Users', value: '400+', unit: 'Stakeholders', border: 'border-tertiary-container' },
+          { label: 'Reporting Accuracy', value: '40%', unit: 'Improvement', border: 'border-outline' },
+          { label: 'Process Complexity', value: '78%', unit: 'Reduction', border: 'border-primary-fixed-dim' },
+        ].map((kpi) => (
+          <div
+            key={kpi.label}
+            className={`glass-card p-6 border-l-4 ${kpi.border} transition-all duration-300 hover:-translate-y-1 hover:shadow-glass-hover`}
+          >
+            <p className="text-sm font-medium text-on-surface-variant mb-1">{kpi.label}</p>
+            <div className="flex items-baseline gap-2">
+              <span className="text-4xl font-bold text-primary">{kpi.value}</span>
+              <span className="text-on-surface-variant text-sm font-medium">{kpi.unit}</span>
+            </div>
+          </div>
+        ))}
+      </section>
+
+      {/* Bento: About + Activity / Education + Certs */}
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div className="lg:col-span-8 space-y-6">
+          <div className="glass-card p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-glass-hover">
+            <h4 className="text-2xl font-medium text-on-surface mb-4 flex items-center gap-2">
+              <span className="material-symbols-outlined text-primary">person</span>
+              About Me
+            </h4>
+            <div className="text-base text-on-surface-variant space-y-4 leading-relaxed">
+              <p>
+                Graduate student at Purdue University&apos;s{' '}
+                <span className="text-on-surface font-semibold italic underline decoration-primary-container/60 underline-offset-4 decoration-2">
+                  MS in Business Analytics and Information Management
+                </span>{' '}
+                program with experience in consulting, collaborating with cross-functional teams and clients to develop and manage analytical solutions.
+              </p>
+              <p>
+                Passionate about continuous learning, committed to{' '}
+                <span className="text-primary font-semibold">transforming complex datasets into actionable insights</span> and
+                leveraging analytics tools and methodologies to facilitate informed business decisions.
+              </p>
+              <p className="text-sm">
+                <span className="text-primary font-medium">Key Skills:</span> Power BI, Qlik Sense, SAS, SQL, Python, Snowflake,
+                Jira, Azure DevOps, AWS (Certified Cloud Practitioner)
+              </p>
+            </div>
+          </div>
+
+          <div className="glass-card p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-glass-hover">
+            <h4 className="text-2xl font-medium text-on-surface mb-6 flex items-center gap-2">
+              <span className="material-symbols-outlined text-primary">school</span>
+              Education
+            </h4>
+            <div className="space-y-6">
+              {EDUCATION.map((item) => (
+                <div key={item.degree} className="flex gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center shrink-0">
+                    <span className="material-symbols-outlined text-primary">workspace_premium</span>
+                  </div>
+                  <div>
+                    <h5 className="text-lg font-bold text-on-surface">{item.degree}</h5>
+                    <p className="text-on-surface-variant text-base">
+                      {item.institution} · {item.period}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="lg:col-span-4 space-y-6">
+          <div className="glass-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-glass-hover">
+            <h4 className="text-sm font-bold text-on-surface mb-6 uppercase tracking-widest">Recent Activity</h4>
+            <div className="space-y-6 relative before:absolute before:left-[19px] before:top-2 before:bottom-2 before:w-[2px] before:bg-surface-container-high">
+              {ACTIVITIES.map((activity, i) => (
+                <div key={activity.title} className="relative pl-10">
+                  <div className="absolute left-0 top-1 w-[40px] h-[40px] flex items-center justify-center">
+                    <div
+                      className={`w-3 h-3 rounded-full ring-4 ring-white ${
+                        i === 0 ? 'bg-primary' : i === 1 ? 'bg-tertiary-container' : 'bg-outline'
+                      }`}
+                    />
+                  </div>
+                  <p className="text-sm font-bold text-on-surface">{activity.title}</p>
+                  <p className="text-xs text-on-surface-variant">{activity.detail}</p>
+                  <p className="text-[10px] text-outline mt-1 uppercase tracking-wide">{activity.time}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="glass-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-glass-hover">
+            <h4 className="text-sm font-bold text-on-surface mb-6 uppercase tracking-widest">Certifications</h4>
+            <div className="space-y-4">
+              {[
+                {
+                  title: 'AWS Certified Cloud Practitioner',
+                  sub: 'CLF-C02',
+                  link: 'https://www.credly.com/badges/20c28916-f11f-4109-a23a-296931ee4ab6/public_url',
+                },
+                {
+                  title: 'Microsoft Azure AI Fundamentals',
+                  sub: 'AI-900',
+                  link: 'https://www.credly.com/badges/e3f2297b-a58f-49d8-ac9f-d4e4fa0fed9c/public_url',
+                },
+                {
+                  title: 'Rising Star Award',
+                  sub: 'ZS Associates · within 6 months',
+                  link: null,
+                },
+              ].map((cert) => {
+                const inner = (
+                  <>
+                    <div className="flex items-center gap-3">
+                      <span
+                        className="material-symbols-outlined text-primary"
+                        style={{ fontVariationSettings: "'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24" }}
+                      >
+                        verified
+                      </span>
+                      <div>
+                        <p className="text-sm font-medium text-on-surface">{cert.title}</p>
+                        <p className="text-[11px] text-on-surface-variant">{cert.sub}</p>
+                      </div>
+                    </div>
+                    {cert.link && (
+                      <span className="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform">
+                        chevron_right
+                      </span>
+                    )}
+                  </>
+                );
+                const className =
+                  'p-4 bg-surface-container-low rounded-xl flex justify-between items-center group hover:bg-surface-container-high transition-colors';
+                return cert.link ? (
+                  <a key={cert.title} href={cert.link} target="_blank" rel="noopener noreferrer" className={className}>
+                    {inner}
+                  </a>
+                ) : (
+                  <div key={cert.title} className={className}>
+                    {inner}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          <button
+            onClick={() => onNavigate('contact')}
+            className="w-full glass-card p-4 flex items-center justify-between text-primary hover:bg-secondary-container/30 transition-colors"
+          >
+            <span className="text-sm font-medium flex items-center gap-2">
+              <span className="material-symbols-outlined">mail</span>
+              Get in touch
+            </span>
+            <span className="material-symbols-outlined">arrow_forward</span>
+          </button>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Overview;
