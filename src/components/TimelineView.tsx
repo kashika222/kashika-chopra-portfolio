@@ -107,7 +107,7 @@ const TIMELINE: TimelineItem[] = [
 
 const TimelineView: React.FC = () => {
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <div className="max-w-4xl">
         <span className="text-primary text-xs font-semibold tracking-widest uppercase mb-1 block">Professional Journey</span>
         <h3 className="text-3xl md:text-4xl font-semibold text-on-surface mb-3 tracking-tight">Career Trajectory</h3>
@@ -120,7 +120,7 @@ const TimelineView: React.FC = () => {
       <section className="relative pb-4">
         <div className="absolute left-1/2 -translate-x-1/2 h-full w-[2px] bg-gradient-to-b from-outline-variant via-primary-container to-outline-variant opacity-40 hidden md:block" />
 
-        <div className="space-y-8 relative">
+        <div className="space-y-5 relative">
           {TIMELINE.map((item, index) => {
             const isLeft = index % 2 === 0;
             return (
@@ -234,9 +234,9 @@ const TimelineView: React.FC = () => {
       </section>
 
       {/* Industry focus bento */}
-      <section className="bg-surface-container-low rounded-3xl p-6 md:p-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          <div className="md:col-span-2 bg-white p-6 rounded-3xl shadow-glass">
+      <section className="bg-surface-container-low rounded-3xl p-4 md:p-5">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
+          <div className="md:col-span-2 bg-white p-4 rounded-3xl shadow-glass">
             <h4 className="text-lg font-medium text-primary mb-2">Core Competencies</h4>
             <p className="text-on-surface-variant text-sm mb-4 leading-relaxed">
               A blend of technical expertise and strategic consulting, refined through high-stakes client engagements.
@@ -256,7 +256,7 @@ const TimelineView: React.FC = () => {
               ))}
             </div>
           </div>
-          <div className="md:col-span-2 bg-primary-container p-6 rounded-3xl flex flex-col justify-center">
+          <div className="md:col-span-2 bg-primary-container p-4 rounded-3xl flex flex-col justify-center">
             <h4 className="text-on-primary-container text-lg font-medium mb-3">Industry Focus</h4>
             <div className="flex flex-wrap gap-2">
               {['Pharmaceuticals', 'CPG / Procurement', 'Consulting', 'Financial Analytics'].map((tag) => (
@@ -266,15 +266,15 @@ const TimelineView: React.FC = () => {
               ))}
             </div>
           </div>
-          <div className="bg-secondary-container p-5 rounded-3xl flex flex-col items-center justify-center text-center">
+          <div className="bg-secondary-container p-4 rounded-3xl flex flex-col items-center justify-center text-center">
             <span className="material-symbols-outlined text-3xl text-on-secondary-container mb-1">groups</span>
             <span className="text-on-secondary-container font-bold text-sm">Stakeholder Partnership</span>
           </div>
-          <div className="bg-tertiary-container p-5 rounded-3xl flex flex-col items-center justify-center text-center">
+          <div className="bg-tertiary-container p-4 rounded-3xl flex flex-col items-center justify-center text-center">
             <span className="material-symbols-outlined text-3xl text-on-tertiary-container mb-1">diversity_3</span>
             <span className="text-on-tertiary-container font-bold text-sm">Team Mentorship</span>
           </div>
-          <div className="md:col-span-2 bg-white p-5 rounded-3xl shadow-glass flex items-center gap-3">
+          <div className="md:col-span-2 bg-white p-4 rounded-3xl shadow-glass flex items-center gap-3">
             <span className="material-symbols-outlined text-3xl text-primary">emoji_events</span>
             <div>
               <p className="font-bold text-on-surface">Rising Star Award</p>

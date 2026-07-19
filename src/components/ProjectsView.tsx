@@ -202,14 +202,14 @@ const ProjectsView: React.FC = () => {
   );
 
   return (
-    <div className="space-y-10">
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <p className="text-lg text-outline leading-relaxed max-w-2xl">
+    <div className="space-y-5">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
+        <p className="text-sm md:text-base text-outline leading-relaxed max-w-2xl">
           Exploring the intersection of data-driven insights and business strategy through rigorous analysis and visual
           storytelling.
         </p>
-        <div className="relative flex items-center bg-surface-container-low px-4 py-2 rounded-full w-full md:w-64 shrink-0">
-          <span className="material-symbols-outlined text-outline text-[20px]">search</span>
+        <div className="relative flex items-center bg-surface-container-low px-3 py-1.5 rounded-full w-full md:w-60 shrink-0">
+          <span className="material-symbols-outlined text-outline text-[18px]">search</span>
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
@@ -220,7 +220,7 @@ const ProjectsView: React.FC = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {filtered.map((project) => (
           <div
             key={project.id}
@@ -230,7 +230,7 @@ const ProjectsView: React.FC = () => {
                 : 'bg-white hover:-translate-y-1 hover:shadow-glass-hover'
             }`}
           >
-            <div className="h-44 relative overflow-hidden bg-surface-container-high">
+            <div className="h-36 relative overflow-hidden bg-surface-container-high">
               {project.coverImage ? (
                 <img
                   src={project.coverImage}
@@ -259,19 +259,19 @@ const ProjectsView: React.FC = () => {
                 </span>
               </div>
             </div>
-            <div className="p-6 flex flex-col flex-1">
-              <h4 className={`text-xl font-medium mb-1 ${project.inProgress ? 'text-white' : 'text-on-surface'}`}>
+            <div className="p-4 flex flex-col flex-1">
+              <h4 className={`text-lg font-medium mb-0.5 ${project.inProgress ? 'text-white' : 'text-on-surface'}`}>
                 {project.title}
               </h4>
               <p
-                className={`text-xs uppercase tracking-wider font-semibold mb-3 ${
+                className={`text-[11px] uppercase tracking-wider font-semibold mb-2 ${
                   project.inProgress ? 'text-white/60' : 'text-outline'
                 }`}
               >
                 {project.role}
               </p>
               <p
-                className={`text-sm mb-6 line-clamp-2 leading-relaxed ${
+                className={`text-sm mb-3 line-clamp-2 leading-relaxed ${
                   project.inProgress ? 'text-white/75' : 'text-on-surface-variant'
                 }`}
               >
@@ -279,16 +279,16 @@ const ProjectsView: React.FC = () => {
               </p>
               {!project.inProgress && (
                 <>
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-1.5 mb-3">
                     {project.tags.slice(0, 3).map((tag) => (
-                      <span key={tag} className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full font-medium">
+                      <span key={tag} className="px-2.5 py-0.5 bg-primary/10 text-primary text-xs rounded-full font-medium">
                         {tag}
                       </span>
                     ))}
                   </div>
                   <button
                     onClick={() => setSelected(project)}
-                    className="mt-auto w-full py-3 bg-primary text-white text-sm font-medium rounded-lg hover:bg-on-primary-fixed-variant transition-all flex items-center justify-center gap-2 group-hover:gap-3"
+                    className="mt-auto w-full py-2.5 bg-primary text-white text-sm font-medium rounded-lg hover:bg-on-primary-fixed-variant transition-all flex items-center justify-center gap-2 group-hover:gap-3"
                   >
                     View Analysis
                     <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
@@ -296,7 +296,7 @@ const ProjectsView: React.FC = () => {
                 </>
               )}
               {project.inProgress && (
-                <div className="mt-auto w-full py-3 bg-white/10 text-white/80 text-sm font-medium rounded-lg flex items-center justify-center gap-2 cursor-default">
+                <div className="mt-auto w-full py-2.5 bg-white/10 text-white/80 text-sm font-medium rounded-lg flex items-center justify-center gap-2 cursor-default">
                   <span className="material-symbols-outlined text-[18px]">hourglass_top</span>
                   Work in Progress
                 </div>

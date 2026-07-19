@@ -106,12 +106,12 @@ const SkillsView: React.FC<SkillsViewProps> = ({ onNavigate }) => {
   );
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-4">
       <section className="max-w-4xl">
-        <h3 className="text-4xl md:text-5xl font-semibold text-on-primary-container mb-4 tracking-tight">
+        <h3 className="text-2xl md:text-3xl font-semibold text-on-primary-container mb-2 tracking-tight">
           The Proficiency Matrix
         </h3>
-        <p className="text-lg text-on-surface-variant leading-relaxed">
+        <p className="text-sm text-on-surface-variant leading-relaxed">
           A comprehensive visual breakdown of my technical stack, analytical competencies, and tool proficiency across the
           analytics lifecycle.
         </p>
@@ -130,10 +130,10 @@ const SkillsView: React.FC<SkillsViewProps> = ({ onNavigate }) => {
         />
       </div>
 
-      <div className="grid grid-cols-12 gap-6">
-        <div className="col-span-12 lg:col-span-5 glass-card p-8 flex flex-col items-center">
-          <div className="w-full mb-6">
-            <h4 className="text-2xl font-medium text-primary">Core Competencies</h4>
+      <div className="grid grid-cols-12 gap-4">
+        <div className="col-span-12 lg:col-span-5 glass-card p-5 flex flex-col items-center">
+          <div className="w-full mb-3">
+            <h4 className="text-lg font-medium text-primary">Core Competencies</h4>
             <p className="text-sm text-outline">Balance of analytical and strategic skills</p>
           </div>
           <div className="relative w-full aspect-square max-w-[320px] flex items-center justify-center">
@@ -141,10 +141,10 @@ const SkillsView: React.FC<SkillsViewProps> = ({ onNavigate }) => {
           </div>
         </div>
 
-        <div className="col-span-12 lg:col-span-7 glass-card p-8 flex flex-col">
-          <h4 className="text-2xl font-medium text-primary mb-2">Machine Learning Ecosystem</h4>
-          <p className="text-sm text-outline mb-8">Framework proficiency and real-world application experience</p>
-          <div className="space-y-7 flex-1">
+        <div className="col-span-12 lg:col-span-7 glass-card p-5 flex flex-col">
+          <h4 className="text-lg font-medium text-primary mb-2">Machine Learning Ecosystem</h4>
+          <p className="text-sm text-outline mb-4">Framework proficiency and real-world application experience</p>
+          <div className="space-y-4 flex-1">
             {ML_BARS.map((bar) => (
               <div key={bar.name} className="space-y-2">
                 <div className="flex justify-between items-center">
@@ -162,8 +162,8 @@ const SkillsView: React.FC<SkillsViewProps> = ({ onNavigate }) => {
           </div>
         </div>
 
-        <div className="col-span-12 glass-card p-8">
-          <div className="flex flex-wrap items-center gap-2 border-b border-outline-variant/30 pb-4 mb-6">
+        <div className="col-span-12 glass-card p-5">
+          <div className="flex flex-wrap items-center gap-2 border-b border-outline-variant/30 pb-3 mb-3">
             {TABS.map((tab) => (
               <button
                 key={tab}
@@ -197,9 +197,9 @@ const SkillsView: React.FC<SkillsViewProps> = ({ onNavigate }) => {
           </div>
         </div>
 
-        <div className="col-span-12 glass-card p-8">
-          <h4 className="text-2xl font-medium text-primary mb-6">Data Infrastructure & BI Tools</h4>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="col-span-12 glass-card p-5">
+          <h4 className="text-lg font-medium text-primary mb-3">Data Infrastructure & BI Tools</h4>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
               {
                 title: 'Storage & SQL',
@@ -221,7 +221,7 @@ const SkillsView: React.FC<SkillsViewProps> = ({ onNavigate }) => {
               },
             ].map((group) => (
               <div key={group.title}>
-                <div className="flex items-center gap-2 mb-4">
+                <div className="flex items-center gap-2 mb-2">
                   <span className="material-symbols-outlined text-primary">{group.icon}</span>
                   <h5 className="text-sm font-medium text-on-surface uppercase tracking-wider">{group.title}</h5>
                 </div>
@@ -237,15 +237,15 @@ const SkillsView: React.FC<SkillsViewProps> = ({ onNavigate }) => {
           </div>
         </div>
 
-        <div className="col-span-12 lg:col-span-4 bg-primary text-on-primary rounded-xl p-8 relative overflow-hidden group">
+        <div className="col-span-12 lg:col-span-4 bg-primary text-on-primary rounded-xl p-5 relative overflow-hidden group">
           <div className="relative z-10">
-            <h4 className="text-2xl font-medium mb-2">Technical Mastery</h4>
-            <p className="text-sm opacity-80 mb-6">
+            <h4 className="text-lg font-medium mb-2">Technical Mastery</h4>
+            <p className="text-sm opacity-80 mb-3">
               Explore how these skills converge in predictive modeling and enterprise BI projects.
             </p>
             <button
               onClick={() => onNavigate('projects')}
-              className="flex items-center gap-2 bg-white text-primary px-6 py-3 rounded-full text-sm font-medium hover:shadow-lg transition-all active:scale-95"
+              className="flex items-center gap-2 bg-white text-primary px-4 py-2 rounded-full text-sm font-medium hover:shadow-lg transition-all active:scale-95"
             >
               View Project Catalog
               <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
@@ -254,10 +254,10 @@ const SkillsView: React.FC<SkillsViewProps> = ({ onNavigate }) => {
           <div className="absolute -right-8 -bottom-8 w-48 h-48 bg-primary-container/20 rounded-full blur-3xl group-hover:scale-125 transition-transform duration-700" />
         </div>
 
-        <div className="col-span-12 lg:col-span-8 glass-card p-8 flex flex-col md:flex-row items-center gap-8">
+        <div className="col-span-12 lg:col-span-8 glass-card p-5 flex flex-col md:flex-row items-center gap-4">
           <div className="flex-1">
-            <h4 className="text-2xl font-medium text-primary mb-2">Verified Expertise</h4>
-            <p className="text-sm text-outline mb-6">Industry certifications validating cloud and AI fundamentals.</p>
+            <h4 className="text-lg font-medium text-primary mb-2">Verified Expertise</h4>
+            <p className="text-sm text-outline mb-3">Industry certifications validating cloud and AI fundamentals.</p>
             <div className="flex flex-wrap gap-4">
               {['AWS Cloud Practitioner (CLF-C02)', 'Azure AI Fundamentals (AI-900)'].map((cert) => (
                 <div

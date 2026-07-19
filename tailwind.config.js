@@ -53,9 +53,9 @@ module.exports = {
         '2xl': '24px',
       },
       spacing: {
-        'margin-desktop': '48px',
-        'margin-mobile': '16px',
-        gutter: '24px',
+        'margin-desktop': '24px',
+        'margin-mobile': '12px',
+        gutter: '16px',
       },
       maxWidth: {
         'container-max': '1440px',
