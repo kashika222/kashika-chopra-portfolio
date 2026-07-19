@@ -1,8 +1,9 @@
 import React from 'react';
-import { EducationItem } from '../types';
+import { EducationItem, ViewType } from '../types';
 
 interface OverviewProps {
   profileImage: string;
+  onNavigate: (view: ViewType) => void;
 }
 
 const EDUCATION: EducationItem[] = [
@@ -36,7 +37,7 @@ const ACTIVITIES = [
   },
 ];
 
-const Overview: React.FC<OverviewProps> = ({ profileImage }) => {
+const Overview: React.FC<OverviewProps> = ({ profileImage, onNavigate }) => {
   return (
     <div className="space-y-6">
       {/* Hero */}
@@ -137,7 +138,7 @@ const Overview: React.FC<OverviewProps> = ({ profileImage }) => {
 
       {/* Education + Certifications — equal height */}
       <section className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-        <div className="lg:col-span-8 glass-card p-8 h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-glass-hover">
+        <div className="lg:col-span-8 glass-card p-8 h-full flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-glass-hover">
           <h4 className="text-2xl font-medium text-on-surface mb-6 flex items-center gap-2">
             <span className="material-symbols-outlined text-primary">school</span>
             Education
@@ -157,6 +158,15 @@ const Overview: React.FC<OverviewProps> = ({ profileImage }) => {
               </div>
             ))}
           </div>
+          <button
+            onClick={() => onNavigate('timeline')}
+            className="mt-auto pt-8 flex items-center gap-2 text-primary text-sm font-semibold group self-start hover:gap-3 transition-all"
+          >
+            Check out the full journey!
+            <span className="material-symbols-outlined text-[18px] group-hover:translate-x-0.5 transition-transform">
+              arrow_forward
+            </span>
+          </button>
         </div>
 
         <div className="lg:col-span-4 glass-card p-6 h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-glass-hover">

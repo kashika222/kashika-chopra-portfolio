@@ -103,7 +103,7 @@ const App: React.FC = () => {
         </header>
 
         <div className="px-4 md:px-margin-desktop py-8 max-w-7xl mx-auto animate-fade-up">
-          {activeView === 'overview' && <Overview profileImage={PROFILE_IMAGE} />}
+          {activeView === 'overview' && <Overview profileImage={PROFILE_IMAGE} onNavigate={go} />}
           {activeView === 'projects' && <ProjectsView />}
           {activeView === 'skills' && <SkillsView onNavigate={go} />}
           {activeView === 'timeline' && <TimelineView />}
