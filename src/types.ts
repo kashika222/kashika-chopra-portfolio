@@ -32,6 +32,7 @@ export interface ProjectItem {
   keyInsights?: string[];
   detailedTools?: string[];
   inProgress?: boolean;
+  coverImage?: string;
 }
 
 export interface TimelineItem {

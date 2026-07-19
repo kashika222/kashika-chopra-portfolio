@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { ProjectItem } from '../types';
 
+const img = (name: string) => `${import.meta.env.BASE_URL}projects/${name}`;
+
 const PROJECTS: ProjectItem[] = [
   {
     id: '1',
@@ -15,6 +17,7 @@ const PROJECTS: ProjectItem[] = [
     impactSecondaryLabel: 'Color Palettes',
     impactSecondaryValue: '12',
     icon: 'styler',
+    coverImage: img('stylesync.jpg'),
     businessProblem:
       'Consumers struggle to shop sustainably and style what they already own. StyleSync digitizes wardrobes, personalizes color seasons, scores purchases, and generates outfits to reduce wasteful buying.',
     datasetDescription:
@@ -42,6 +45,7 @@ const PROJECTS: ProjectItem[] = [
     impactSecondaryLabel: 'Hosts Targeted',
     impactSecondaryValue: '19.7%',
     icon: 'trending_up',
+    coverImage: img('airbnb.jpg'),
     businessProblem:
       'Airbnb needed to optimize customer retention by identifying hosts at risk of churn and strategically allocating promotional incentives to maximize expected profit while minimizing unnecessary spend.',
     datasetDescription:
@@ -69,6 +73,7 @@ const PROJECTS: ProjectItem[] = [
     impactSecondaryLabel: 'CV Folds',
     impactSecondaryValue: '10-fold',
     icon: 'shield',
+    coverImage: img('bankruptcy.jpg'),
     businessProblem:
       'Financial institutions needed an accurate system to predict company bankruptcy risk using financial ratios. Early detection enables proactive risk management and portfolio optimization.',
     datasetDescription:
@@ -96,6 +101,7 @@ const PROJECTS: ProjectItem[] = [
     impactSecondaryLabel: 'Ensemble AUC',
     impactSecondaryValue: '0.67',
     icon: 'campaign',
+    coverImage: img('product-ads.jpg'),
     businessProblem:
       'Optimize which items from a 331-product t-shirt catalog to advertise under a fixed budget, with an asymmetric business cost matrix for false positives and false negatives.',
     datasetDescription:
@@ -123,6 +129,7 @@ const PROJECTS: ProjectItem[] = [
     impactSecondaryLabel: 'From Candidates',
     impactSecondaryValue: '85',
     icon: 'map',
+    coverImage: img('coliving.jpg'),
     businessProblem:
       'Identify underserved markets for senior co-living real estate development using foot-traffic, demographic, and POI data.',
     datasetDescription:
@@ -150,6 +157,7 @@ const PROJECTS: ProjectItem[] = [
     impactSecondaryLabel: 'Platform',
     impactSecondaryValue: 'MongoDB',
     icon: 'hub',
+    coverImage: img('vc.jpg'),
     businessProblem:
       'Venture capital firms need data-driven insights to identify high-potential markets, industries, and geographies for investment using historical funding data.',
     datasetDescription:
@@ -177,6 +185,7 @@ const PROJECTS: ProjectItem[] = [
     impactSecondaryLabel: 'Pillars',
     impactSecondaryValue: '3',
     icon: 'science',
+    coverImage: img('pasi.jpg'),
     inProgress: true,
   },
 ];
@@ -221,23 +230,23 @@ const ProjectsView: React.FC = () => {
                 : 'bg-white hover:-translate-y-1 hover:shadow-glass-hover'
             }`}
           >
-            <div
-              className={`h-40 relative overflow-hidden ${
-                project.inProgress
-                  ? 'bg-gradient-to-br from-primary via-on-primary-fixed-variant to-on-surface'
-                  : 'bg-gradient-to-br from-primary-fixed via-secondary-container to-surface-container-high'
-              }`}
-            >
-              <div className="absolute inset-0 bg-gradient-to-t from-black/15 to-transparent z-10" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span
-                  className={`material-symbols-outlined text-[72px] ${
-                    project.inProgress ? 'text-white/35' : 'text-primary/40 group-hover:scale-110 transition-transform duration-700'
+            <div className="h-44 relative overflow-hidden bg-surface-container-high">
+              {project.coverImage ? (
+                <img
+                  src={project.coverImage}
+                  alt=""
+                  className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 ${
+                    project.inProgress ? 'opacity-80 grayscale-[20%]' : 'group-hover:scale-105'
                   }`}
-                >
-                  {project.icon}
-                </span>
-              </div>
+                />
+              ) : null}
+              <div
+                className={`absolute inset-0 z-10 ${
+                  project.inProgress
+                    ? 'bg-gradient-to-t from-on-surface/70 via-on-surface/20 to-transparent'
+                    : 'bg-gradient-to-t from-black/20 to-transparent'
+                }`}
+              />
               <div className="absolute top-4 right-4 z-20">
                 <span
                   className={`backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold ${
