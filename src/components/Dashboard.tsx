@@ -21,19 +21,19 @@ const EDUCATION: EducationItem[] = [
 
 const ACTIVITIES = [
   {
-    title: 'Halfway through grad school… still standing',
-    time: 'Ongoing',
-    detail: 'MSBAIM @ Purdue',
+    title: 'Summer Research Project',
+    time: 'The Data Mine',
+    detail: '',
   },
   {
     title: 'Survived a Midwest winter (barely)',
     time: 'Winter 2025',
-    detail: 'West Lafayette, IN',
+    detail: '',
   },
   {
     title: 'Made the perfect cup of coffee (life peaked)',
     time: 'Daily achievement',
-    detail: 'Life skills',
+    detail: '',
   },
 ];
 
@@ -125,7 +125,9 @@ const Overview: React.FC<OverviewProps> = ({ profileImage, onNavigate }) => {
                   />
                 </div>
                 <p className="text-sm font-bold text-on-surface leading-snug">{activity.title}</p>
-                <p className="text-xs text-on-surface-variant">{activity.detail}</p>
+                {activity.detail ? (
+                  <p className="text-xs text-on-surface-variant">{activity.detail}</p>
+                ) : null}
                 <p className="text-[10px] text-outline mt-0.5 uppercase tracking-wide">{activity.time}</p>
               </div>
             ))}
