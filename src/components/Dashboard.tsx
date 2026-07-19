@@ -8,12 +8,12 @@ interface OverviewProps {
 
 const EDUCATION: EducationItem[] = [
   {
-    degree: 'MS in Business Analytics & Information Management',
+    degree: 'Master of Science, Business Analytics & Information Management',
     institution: 'Purdue University, Daniels School of Business',
     period: 'Aug 2025 – Aug 2026',
   },
   {
-    degree: 'BTech in Computer Science',
+    degree: 'Bachelor of Technology, Computer Science',
     institution: 'University of Petroleum and Energy Studies (UPES)',
     period: 'July 2018 – May 2022',
   },
